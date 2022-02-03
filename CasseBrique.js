@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let vitesseP = 0 //vitesse horizontal du paddle
     let animate = false
     let score = 0
-    let Level = 0
+    let Level = 3
     let running = true
 //fonction qui dit que si la div balle touche une sur nimporte quelle face brique , la vitesse sera inversé
 //boucle si une brique est toucher , alors elle disparaitra
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
             fin.style.display='flex'
             }
         if (Level == 4) {
-            vitesseV + 1
+            vitesseV = 2.2
             vitesseH + 0.2
             for (let i = 0; i < 8; i++) {             //
                 for (let j = 0; j < 1; j++) {         //créer une boucle pour la colonne de briques de 8
@@ -110,8 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         if (Level == 3) {
-            vitesseV + 1
-            vitesseH + 0.2
+            vitesseV = 1.7
         for (let i = 0; i < 8; i++) {             //
             for (let j = 0; j < 3; j++) {         //créer une boucle pour la colonne de briques de 8
                 ajouterB(10+(i*11),2+(j*16))      //
@@ -135,8 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         if (Level == 2) {
-            vitesseV + 1
-            vitesseH + 0.2
+            vitesseV = 1.4
             for (let i = 0; i < 4 ; i++) {          
                 for (let j = 0; j < 2; j++) {         
                     ajouterB(16+(i*22),2+(j*20))
