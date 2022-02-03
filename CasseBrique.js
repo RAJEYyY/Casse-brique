@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let vitesseP = 0 //vitesse horizontal du paddle
     let animate = false
     let score = 0
-    let Level = 3
+    let Level = 0
     let running = true
 //fonction qui dit que si la div balle touche une sur nimporte quelle face brique , la vitesse sera inversé
 //boucle si une brique est toucher , alors elle disparaitra
