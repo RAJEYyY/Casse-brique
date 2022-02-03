@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    height: 95vh;
+}
+
+#lose {
+    position: absolute;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    justify-content: center; 
+    align-items: center; 
+    top:0%;
+    left:0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: white;
+    z-index:1;
+}
+
+#balle {
+    position: absolute;
+    width: 3vw;
+    height: 6vh;
+    background-color: black;
+    border-radius: 80%;
+}
+
+#control {
+width: 100%;
+height: 100%;
+/* display:flex; */
+flex-direction: row;
+justify-content: center;
+align-items: flex-end;
+padding-bottom: 12px;
+display: none;
+}
+
+#PADDLE {
+background-color: black;
+position: absolute;
+width: 10vw;
+height: 5vh;
+border-radius: 5px;
+}
+
+.brique {
+position: absolute;
+border-radius: 5px;
+    background: 
+    radial-gradient(
+        #f06d06,
+        maroon
+    );
+}
+
+table {
+border-collapse: separate;
+/* width: 5vw; */
+height: 10vh;
+font-size: 180%;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin: 1vw;
+text-align: center;
+}
+
+#panneau {
+position: absolute;
+font-family: Arial, Helvetica, sans-serif;
+/* background-color: red;  */
+top:0%;
+left:0%;
+width: 10vw;
+bottom: 0%;
+display: flex;
+flex-direction: column;
+align-items: stretch ;
+justify-content: space-evenly;
+z-index: 2;
+}
+
+td {
+border: 3px solid black;
+background-color: #E5E8E8 ;
+border-radius: 5px;
+}
+
+#restart {
+    width:100px;
+    line-height:50px;
+    text-align:center;
+    background-color: rgb(199, 197, 197);
+    color: rgb(46, 48, 46);
+    border-radius: 5px;
+}
+
+#gg {
+    position: absolute;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    justify-content: center; 
+    align-items: center; 
+    top:0%;
+    left:0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: white;
+    z-index: index 3;
+}
