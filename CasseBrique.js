@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         if (Level == 3) {
-            vitesseV = 1.7
+            vitesseV = 1.8
         for (let i = 0; i < 8; i++) {             //
             for (let j = 0; j < 3; j++) {         //créer une boucle pour la colonne de briques de 8
                 ajouterB(10+(i*11),2+(j*16))      //
