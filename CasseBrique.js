@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let sec = 0;
     let min = 0;
     var t;
+    let briqueBackground = 'radial-gradient(#f06d06,maroon)'
 //fonction qui dit que si la div balle touche une sur nimporte quelle face brique , la vitesse sera inversé
 //boucle si une brique est toucher , alors elle disparaitra
     function collisonB () {
@@ -170,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
         brique.style.top = top +'%'
         brique.style.width = width+'vw'
         brique.style.height = height+'vh'
+        brique.style.background = briqueBackground
         // ajoute le nouvel élément créé et son contenu dans le DOM
         document.body.appendChild(brique);
     }
@@ -282,7 +284,8 @@ document.addEventListener("DOMContentLoaded", function() {
             start.onclick()
     }
     // on agit en fonction des touches sur lesquelles on appuie
-    function logKey (e) {                           
+    function logKey (e) { 
+        console.log(e.code)                          
         if ( e.code == "KeyA") {                    //
             goleft()                                // la touche Q permet d'aller a gauche
             
@@ -307,6 +310,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.code == "KeyG") {                     //
             restarted()                               // la touche R permet de restart
             reset.onclick()
+        }
+        if (e.code =="Enter") {
+            document.body.style.backgroundColor='rgb(6,7,7)'
+            let h1s = document.querySelectorAll('h1')
+            h1s.forEach(elem => elem.style.color = 'white')
+            paddle.style.backgroundColor = 'white'
+            balle.style.backgroundColor = 'white'
+            let mur = document.querySelectorAll('.brique') 
+            mur.forEach(brique => {
+                brique.style.background = 'white'
+            })
+            briqueBackground = 'white'
+            document.getElementById('egg').style.display = 'block';
+            lose.style.backgroundColor = 'black'
+            fin.style.backgroundColor = 'black'
         }
     }
     function reconstruction () {
