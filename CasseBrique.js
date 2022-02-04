@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let score = 0
     let Level = 0
     let running = true
+    let h1 = document.getElementsByTagName('h1')[0];
+    let start = document.getElementById('start');
+    let stop = document.getElementById('stop');
+    let reset = document.getElementById('reset');
+    let mils = 0;
+    let sec = 0;
+    let min = 0;
+    var t;
 //fonction qui dit que si la div balle touche une sur nimporte quelle face brique , la vitesse sera inversé
 //boucle si une brique est toucher , alors elle disparaitra
     function collisonB () {
@@ -89,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             running = false
             newtop = "90%"
             fin.style.display='flex'
+            stop.onclick()
             }
         if (Level == 4) {
             vitesseV = 2.2
@@ -194,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
             animate = false
             running = false
             newtop = "90%"
-            lose.style.display = 'flex' 
+            lose.style.display = 'flex'
         } 
         else {
             newtop = oldtop+vitesseV+'%'
@@ -255,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function pause () {                                 // 
         if (animate && running) {
             animate = false                              // accélère le paddle vers la droite
-            
         }
     }
     function restarted () {                              
@@ -264,21 +272,24 @@ document.addEventListener("DOMContentLoaded", function() {
             lose.style.display = 'none'
             fin.style.display = 'none'
             paddle.style.left = '45%'
-            balle.style.left = '50%'
+            balle.style.left = '47%'
             balle.style.top = '20%'
-            running = true
             vitesseV = 1
+            running = true
             Level=0
             score=0
             vitesseP=0
+            start.onclick()
     }
     // on agit en fonction des touches sur lesquelles on appuie
     function logKey (e) {                           
         if ( e.code == "KeyA") {                    //
             goleft()                                // la touche Q permet d'aller a gauche
+            
         }
         if ( e.code == "ArrowLeft") {                    //
             goleft()                                // la touche Q permet d'aller a gauche
+            
         }
         if (e.code == "KeyD") {                     //
             goright()                               // la touche D permet d'aller a droite
@@ -291,9 +302,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (e.code == "KeyR") {                     //
             restarted()                               // la touche R permet de restart
+            reset.onclick()
         }
         if (e.code == "KeyG") {                     //
             restarted()                               // la touche R permet de restart
+            reset.onclick()
         }
     }
     function reconstruction () {
@@ -313,6 +326,40 @@ document.addEventListener("DOMContentLoaded", function() {
                 Leveled = true 
         }
     }
+    
+    function tick(){
+        if (animate) {
+            mils++;
+            if (mils >= 100) {
+                mils = 0;
+                sec++;
+                if (sec >= 60) {
+                    sec = 0;
+                    min++;
+                }
+            }
+        }
+    }
+    function add() {
+        tick();
+        h1.textContent = (min > 9 ? min : "0" + min) 
+                    + ":" + (sec > 9 ? sec : "0" + sec)
+                    + ":" + (mils > 9 ? mils : "0" + mils);
+        timer();
+    }
+    function timer() {
+        t = setTimeout(add, 10);
+    }
+
+    timer();
+    start.onclick = timer;
+    stop.onclick = function() {
+        clearTimeout(t);
+    }
+    reset.onclick = function() {
+        h1.textContent = "00:00:00";
+        mils = 0; sec = 0; min = 0;
+    }
     function leveling () {
         document.getElementById("p2").innerHTML = Level;
     }
@@ -321,5 +368,8 @@ document.addEventListener("DOMContentLoaded", function() {
     buttons[1].addEventListener('click', goright);        //fait en sorte que le bouton nous fasse aller a droite
     buttons[2].addEventListener('click', restarted);
     buttons[3].addEventListener('click', restarted);
+    // start.addEventListener('click', start);
+    // stop.addEventListener('click', stop);
+    // reset.addEventListener('click', reset);
     document.addEventListener('keydown', logKey);         //écoute les évènement d'appui de touches du clavier
 });
