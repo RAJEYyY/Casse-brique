@@ -310,6 +310,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.code == "KeyG") {                     //
             restarted()                               // la touche R permet de restart
             reset.onclick()
+            
         }
         if (e.code =="Enter") {
             document.body.style.backgroundColor='rgb(6,7,7)'
@@ -375,6 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
         clearTimeout(t);
     }
     reset.onclick = function() {
+        clearInterval(t)
         h1.textContent = "00:00:00";
         mils = 0; sec = 0; min = 0;
     }
