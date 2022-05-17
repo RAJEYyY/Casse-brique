@@ -283,22 +283,28 @@ document.addEventListener("DOMContentLoaded", function() {
             vitesseP=0
             start.onclick()
     }
+    function retirer () {
+        let touches = document.querySelector('.touches')
+        touches.classList.add('invisible')
+    }
     // on agit en fonction des touches sur lesquelles on appuie
     function logKey (e) { 
         console.log(e.code)                          
         if ( e.code == "KeyA") {                    //
             goleft()                                // la touche Q permet d'aller a gauche
-            
+            retirer()
         }
         if ( e.code == "ArrowLeft") {                    //
             goleft()                                // la touche Q permet d'aller a gauche
-            
+            retirer()
         }
         if (e.code == "KeyD") {                     //
             goright()                               // la touche D permet d'aller a droite
+            retirer()
         }
         if (e.code == "ArrowRight") {                     //
             goright()                               // la touche D permet d'aller a droite
+            retirer()
         }
         if (e.code == "KeyP") {                     //
             pause()                               // la touche P permet de mettre pause
@@ -326,6 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('egg').style.display = 'block';
             lose.style.backgroundColor = 'black'
             fin.style.backgroundColor = 'black'
+            retirer()
         }
     }
     function reconstruction () {

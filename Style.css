@@ -152,4 +152,19 @@ left: 0px;
 margin-left: -80px;
 z-index: -1;
 }
-
+.touches {
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    max-width: 100vw;
+    top: 0px;
+    left: 0px;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invisible {
+    display: none;
+}
