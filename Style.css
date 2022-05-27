@@ -168,3 +168,14 @@ z-index: -1;
 .invisible {
     display: none;
 }
+a {
+    width  : 10;
+    height : 10;
+    border-bottom : 50px solid hsla(200, 100%, 44%, 1);
+    border-left   : 50px solid transparent;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 51;
+    cursor: pointer;
+  }
